@@ -11,11 +11,12 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Test {
+public class Person {
 
     @Id
     private long id;
 
-    private String name;
-    
+    private String firstName;
+
+    private String lastName;
 }
