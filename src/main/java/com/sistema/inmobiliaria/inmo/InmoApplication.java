@@ -9,4 +9,5 @@ public class InmoApplication {
     public static void main(String[] args) {
         SpringApplication.run(InmoApplication.class, args);
     }
+
 }

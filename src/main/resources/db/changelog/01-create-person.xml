@@ -5,8 +5,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="01" author="ruben">
-        <createTable tableName="person"
-                     remarks="A table to contain all person">
+        <createTable tableName="person" remarks="A table to contain all person">
             <column name="id" type="long">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
@@ -15,6 +14,18 @@
             </column>
             <column name="last_name" type="varchar(255)">
                 <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_date" type="timestamp(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="last_modified_date" type="timestamp(6)">
+                <constraints nullable="true"/>
             </column>
         </createTable>
     </changeSet>
