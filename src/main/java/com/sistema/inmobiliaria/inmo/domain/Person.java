@@ -1,7 +1,10 @@
 package com.sistema.inmobiliaria.inmo.domain;
 
+import com.sistema.inmobiliaria.inmo.domain.common.AuditedEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -11,7 +14,9 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Person {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Person extends AuditedEntity<String> {
 
     @Id
     private long id;
