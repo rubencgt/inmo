@@ -1,22 +1,27 @@
 package com.sistema.inmobiliaria.inmo.domain;
 
+import com.sistema.inmobiliaria.inmo.core.IdGenerator;
 import com.sistema.inmobiliaria.inmo.domain.common.AuditedEntity;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Person extends AuditedEntity<String> {
+
+
+    public Person() {
+    }
+
+    public Person(String firstName, String lastName) {
+        this.id = IdGenerator.getLongId();
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     @Id
     private long id;
