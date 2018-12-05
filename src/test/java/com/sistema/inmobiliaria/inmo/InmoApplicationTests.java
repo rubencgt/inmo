@@ -12,5 +12,4 @@ public class InmoApplicationTests {
     @Test
     public void contextLoads() {
     }
-
 }

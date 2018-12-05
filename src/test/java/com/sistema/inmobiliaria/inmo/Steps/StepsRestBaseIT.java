@@ -8,14 +8,14 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootTest(classes = InmoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration
-public class StepsRestBase {
+public class StepsRestBaseIT {
 
     @LocalServerPort
     public int port;
 
     public RestTemplate restTemplate;
-    
-    public StepsRestBase() {
+
+    public StepsRestBaseIT() {
         restTemplate = new RestTemplate();
     }
 }
