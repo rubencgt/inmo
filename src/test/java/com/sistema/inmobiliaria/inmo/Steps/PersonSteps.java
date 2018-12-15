@@ -17,7 +17,7 @@ public class PersonSteps extends StepsRestBaseIT {
 
     @When("a new person is created")
     public void personIsCreated() {
-        Person person = new Person("some name", "name");
+        Person person = new Person("some name", "name", "some@email.com");
         personRepository.save(person);
         cucumberContext.setCustomerId(person.getId());
     }
