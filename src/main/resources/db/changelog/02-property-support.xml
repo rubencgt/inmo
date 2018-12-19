@@ -5,9 +5,9 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="01" author="ruben">
-        <createTable tableName="PERSON" remarks="A table to contain all person">
+        <createTable tableName="PROPERTY" remarks="Property table">
             <column name="ID" type="NUMBER(19)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="VERSION" type="NUMBER(19)">
                 <constraints nullable="false"/>
@@ -24,16 +24,24 @@
             <column name="LAST_MODIFIED_DATE" type="timestamp(6)">
                 <constraints nullable="true"/>
             </column>
-            <column name="FIRST_NAME" type="varchar(255)">
+            <column name="LOCATION" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="LAST_NAME" type="varchar(255)">
+            <column name="TYPE" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="EMAIL" type="VARCHAR2(255)">
-                <constraints nullable="false" unique="true"/>
+            <column name="DESCRIPTION" type="VARCHAR2(255)">
+                <constraints nullable="false"/>
             </column>
         </createTable>
-        <createSequence sequenceName="PERSON_SEQ_ID" startValue="1" incrementBy="100"/>
+        <createSequence sequenceName="PROPERTY_SEQ_ID" startValue="1" incrementBy="100"/>
+    </changeSet>
+
+    <changeSet id="02" author="ruben">
+        <createTable tableName="HOUSE" remarks="House table">
+            <column name="PROPERTY_ID" type="NUMBER(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
     </changeSet>
 </databaseChangeLog>

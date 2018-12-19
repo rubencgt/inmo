@@ -1,4 +1,4 @@
-package com.sistema.inmobiliaria.inmo.domain;
+package com.sistema.inmobiliaria.inmo.domain.user;
 
 import com.sistema.inmobiliaria.inmo.domain.common.VersionedEntity;
 import lombok.Data;
@@ -13,6 +13,7 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name = "ID_GENERATOR", sequenceName = "PERSON_SEQ_ID", allocationSize = 100)
 public class Person extends VersionedEntity<Long> {
 
+    //TODO decide and rename this class and its repository to user if necessary
 
     public Person() {
     }
