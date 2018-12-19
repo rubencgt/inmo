@@ -9,4 +9,5 @@ public class CucumberContext {
 
     private long customerId;
 
+    private long propertyId;
 }

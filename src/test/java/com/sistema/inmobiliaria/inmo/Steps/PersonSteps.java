@@ -1,23 +1,21 @@
 package com.sistema.inmobiliaria.inmo.Steps;
 
-import com.sistema.inmobiliaria.inmo.config.CucumberContext;
-import com.sistema.inmobiliaria.inmo.domain.Person;
-import com.sistema.inmobiliaria.inmo.domain.PersonRepository;
+import com.sistema.inmobiliaria.inmo.domain.user.Person;
+import com.sistema.inmobiliaria.inmo.domain.user.PersonRepository;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import static com.sistema.inmobiliaria.inmo.utils.DefaultEntities.unique_email;
 
 public class PersonSteps extends StepsRestBaseIT {
 
     @Autowired
     private PersonRepository personRepository;
 
-    @Autowired
-    private CucumberContext cucumberContext;
-
-    @When("a new person is created")
+    @Given("a new person")
     public void personIsCreated() {
-        Person person = new Person("some name", "name", "some@email.com");
+        Person person = new Person("some name", "name", unique_email());
         personRepository.save(person);
         cucumberContext.setCustomerId(person.getId());
     }
