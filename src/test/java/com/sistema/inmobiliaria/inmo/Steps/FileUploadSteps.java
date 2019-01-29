@@ -1,17 +1,16 @@
 package com.sistema.inmobiliaria.inmo.Steps;
 
 import com.sistema.inmobiliaria.inmo.core.file.FileStorageService;
-import com.sistema.inmobiliaria.inmo.core.file.StorageFileNotFoundException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class FileUploadSteps extends StepsRestBaseIT {
 
@@ -34,9 +33,9 @@ public class FileUploadSteps extends StepsRestBaseIT {
     }
 
     @Then("the file can be deleted")
-    @Test(expected = StorageFileNotFoundException.class)
     public void theServiceShouldDeleteFile() {
+        boolean deleted = service.deleteFile(cucumberContext.getFileName());
         service.deleteAll();
-        assert service.loadAll().collect(Collectors.toList()).isEmpty();
+        assert deleted;
     }
 }
