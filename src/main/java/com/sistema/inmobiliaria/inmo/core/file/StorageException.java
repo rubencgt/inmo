@@ -1,6 +1,7 @@
 package com.sistema.inmobiliaria.inmo.core.file;
 
 public class StorageException extends RuntimeException {
+
     public StorageException(String message) {
         super(message);
     }
@@ -8,4 +9,5 @@ public class StorageException extends RuntimeException {
     public StorageException(String message, Throwable cause) {
         super(message, cause);
     }
+
 }

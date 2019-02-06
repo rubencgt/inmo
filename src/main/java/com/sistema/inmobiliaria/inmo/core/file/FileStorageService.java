@@ -84,6 +84,14 @@ public class FileStorageService {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
 
+    public boolean deleteFile(String fileName) {
+        try {
+            return Files.deleteIfExists(rootLocation.resolve(fileName));
+        } catch (IOException e) {
+            throw new StorageFileNotFoundException("Could not find file: " + fileName, e);
+        }
+    }
+
     @PostConstruct
     public void init() {
         try {
