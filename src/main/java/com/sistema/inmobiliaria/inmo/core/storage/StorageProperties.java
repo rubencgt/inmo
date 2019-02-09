@@ -1,4 +1,4 @@
-package com.sistema.inmobiliaria.inmo.core.file;
+package com.sistema.inmobiliaria.inmo.core.storage;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

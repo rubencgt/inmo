@@ -1,10 +1,8 @@
-package com.sistema.inmobiliaria.inmo.Steps;
+package com.sistema.inmobiliaria.inmo.steps;
 
-import com.sistema.inmobiliaria.inmo.core.file.FileStorageService;
+import com.sistema.inmobiliaria.inmo.core.storage.FileStorageService;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.mock.web.MockMultipartFile;
@@ -19,8 +17,8 @@ public class FileUploadSteps extends StepsRestBaseIT {
 
     @Given("the service uploads a file")
     public void theServiceUploadsFile() {
-        String filename = "temp-file.txt";
-        MultipartFile multipartFile = new MockMultipartFile("temp-file", filename, "text/plain", "some data".getBytes());
+        String filename = "temp-storage.txt";
+        MultipartFile multipartFile = new MockMultipartFile("temp-storage", filename, "text/plain", "some data".getBytes());
         service.store(multipartFile);
         cucumberContext.setFileName(filename);
     }

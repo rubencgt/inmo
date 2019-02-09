@@ -1,4 +1,4 @@
-package com.sistema.inmobiliaria.inmo.core.file;
+package com.sistema.inmobiliaria.inmo.core.storage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -33,19 +33,19 @@ public class FileStorageService {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (file.isEmpty()) {
-                throw new StorageException("Failed to store empty file " + filename);
+                throw new StorageException("Failed to store empty storage " + filename);
             }
             if (filename.contains("..")) {
                 // This is a security check
                 throw new StorageException(
-                        "Cannot store file with relative path outside current directory "
+                        "Cannot store storage with relative path outside current directory "
                                 + filename);
             }
             try (InputStream inputStream = file.getInputStream()) {
                 Files.copy(inputStream, this.rootLocation.resolve(filename), StandardCopyOption.REPLACE_EXISTING);
             }
         } catch (IOException e) {
-            throw new StorageException("Failed to store file " + filename, e);
+            throw new StorageException("Failed to store storage " + filename, e);
         }
     }
 
@@ -72,11 +72,11 @@ public class FileStorageService {
                 return resource;
             } else {
                 throw new StorageFileNotFoundException(
-                        "Could not read file: " + filename);
+                        "Could not read storage: " + filename);
 
             }
         } catch (MalformedURLException e) {
-            throw new StorageFileNotFoundException("Could not read file: " + filename, e);
+            throw new StorageFileNotFoundException("Could not read storage: " + filename, e);
         }
     }
 
@@ -88,7 +88,7 @@ public class FileStorageService {
         try {
             return Files.deleteIfExists(rootLocation.resolve(fileName));
         } catch (IOException e) {
-            throw new StorageFileNotFoundException("Could not find file: " + fileName, e);
+            throw new StorageFileNotFoundException("Could not find storage: " + fileName, e);
         }
     }
 

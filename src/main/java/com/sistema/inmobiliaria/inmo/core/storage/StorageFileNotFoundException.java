@@ -1,4 +1,4 @@
-package com.sistema.inmobiliaria.inmo.core.file;
+package com.sistema.inmobiliaria.inmo.core.storage;
 
 public class StorageFileNotFoundException extends StorageException {
 
