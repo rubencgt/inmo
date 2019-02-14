@@ -1,4 +1,4 @@
-package com.sistema.inmobiliaria.inmo.Steps;
+package com.sistema.inmobiliaria.inmo.steps;
 
 import com.sistema.inmobiliaria.inmo.domain.advertisement.Advertisement;
 import com.sistema.inmobiliaria.inmo.domain.advertisement.AdvertisementRepository;

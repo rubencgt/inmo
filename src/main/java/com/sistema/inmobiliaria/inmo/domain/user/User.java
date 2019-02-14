@@ -10,23 +10,24 @@ import javax.persistence.SequenceGenerator;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@SequenceGenerator(name = "ID_GENERATOR", sequenceName = "PERSON_SEQ_ID", allocationSize = 100)
-public class Person extends VersionedEntity<Long> {
-
-    //TODO decide and rename this class and its repository to user if necessary
-
-    public Person() {
-    }
-
-    private String email;
+@SequenceGenerator(name = "ID_GENERATOR", sequenceName = "USER_SEQ_ID", allocationSize = 100)
+public class User extends VersionedEntity<Long> {
 
     private String firstName;
 
     private String lastName;
 
-    public Person(String firstName, String lastName, String email) {
+    private String email;
+
+    private String password;
+
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
     }
 }
