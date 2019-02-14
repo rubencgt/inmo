@@ -1,4 +1,4 @@
-package com.sistema.inmobiliaria.inmo.core.file;
+package com.sistema.inmobiliaria.inmo.core.storage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
