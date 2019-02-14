@@ -33,7 +33,7 @@ public class FileStorageService {
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             if (file.isEmpty()) {
-                throw new StorageException("Failed to store empty storage " + filename);
+                throw new StorageException("Failed to store empty file " + filename);
             }
             if (filename.contains("..")) {
                 // This is a security check
