@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
-        <oauth2.version>2.3.3.RELEASE</oauth2.version>
+        <oauth2.version>2.3.4.RELEASE</oauth2.version>
         <jackson.library>2.7.5</jackson.library>
         <jwt.version>1.0.9.RELEASE</jwt.version>
         <jaxb-api.version>2.3.0</jaxb-api.version>

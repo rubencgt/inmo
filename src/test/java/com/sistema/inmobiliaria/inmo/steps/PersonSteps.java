@@ -21,9 +21,13 @@ public class PersonSteps extends StepsRestBaseIT {
 
     @Given("a new person is registered")
     public void personIsCreated() {
-        UserDto userDto = createUserDto();
-        restTemplate.postForEntity(inmoUrlBase + RegistrationController.BASE_URL, userDto, UserDto.class);
-        cucumberContext.setTestUser(userDto);
+        if (Objects.isNull(cucumberContext.getTestUser())){
+
+            UserDto userDto = createUserDto();
+            restTemplate.postForEntity(inmoUrlBase + RegistrationController.BASE_URL, userDto, UserDto.class);
+            cucumberContext.setTestUser(userDto);
+
+        }
     }
 
     @Then("the person can access authorized resources")
