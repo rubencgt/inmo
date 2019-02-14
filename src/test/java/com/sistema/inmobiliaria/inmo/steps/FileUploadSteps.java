@@ -1,6 +1,6 @@
 package com.sistema.inmobiliaria.inmo.steps;
 
-import com.sistema.inmobiliaria.inmo.core.file.FileStorageService;
+import com.sistema.inmobiliaria.inmo.core.storage.FileStorageService;
 import com.sistema.inmobiliaria.inmo.core.storage.StorageFileNotFoundException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
