@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.Objects;
 
-public class PersonSteps extends com.sistema.inmobiliaria.inmo.steps.StepsRestBaseIT {
+public class PersonSteps extends StepsRestBaseIT {
 
     @Autowired
     private UserRepository userRepository;
@@ -43,5 +43,4 @@ public class PersonSteps extends com.sistema.inmobiliaria.inmo.steps.StepsRestBa
         assert user.getLastModifiedBy() == null;
         assert user.getLastModifiedDate() == null;
     }
-
 }
