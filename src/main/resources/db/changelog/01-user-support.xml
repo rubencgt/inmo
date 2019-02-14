@@ -5,7 +5,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="01" author="ruben">
-        <createTable tableName="PERSON" remarks="A table to contain all person">
+        <createTable tableName="USER" remarks="A table to contain all user">
             <column name="ID" type="NUMBER(19)">
                 <constraints nullable="false"/>
             </column>
@@ -33,7 +33,10 @@
             <column name="EMAIL" type="VARCHAR2(255)">
                 <constraints nullable="false" unique="true"/>
             </column>
+            <column name="PASSWORD" type="VARCHAR2(255)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
-        <createSequence sequenceName="PERSON_SEQ_ID" startValue="1" incrementBy="100"/>
+        <createSequence sequenceName="USER_SEQ_ID" startValue="1" incrementBy="100"/>
     </changeSet>
 </databaseChangeLog>

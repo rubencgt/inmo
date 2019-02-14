@@ -1,6 +1,6 @@
 package com.sistema.inmobiliaria.inmo.rest;
 
-import com.sistema.inmobiliaria.inmo.core.file.FileStorageService;
+import com.sistema.inmobiliaria.inmo.core.storage.FileStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
