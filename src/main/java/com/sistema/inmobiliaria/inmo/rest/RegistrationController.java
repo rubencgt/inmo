@@ -17,10 +17,12 @@ import javax.validation.Valid;
 @RestController
 public class RegistrationController {
 
+    public static final String BASE_URL = "/registration";
+
     @Autowired
     private RegistrationService registrationService;
 
-    @PostMapping("/registration")
+    @PostMapping(BASE_URL)
     public void registerUserAccount(@RequestBody @Valid UserDto userDto, BindingResult result) {
 
         if (!result.hasErrors()) {
@@ -30,13 +32,7 @@ public class RegistrationController {
 
     @GetMapping("/user")
     public String regis() {
-
-        return "Logged in";
-    }
-
-    @GetMapping("/todos")
-    public String regis2() {
-
-        return "Logged in +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+        //todo add User specific logic e.g. add new add
+        return "Logged in from /user";
     }
 }
