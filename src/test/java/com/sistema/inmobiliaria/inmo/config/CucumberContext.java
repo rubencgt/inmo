@@ -15,4 +15,5 @@ public class CucumberContext {
     private String fileName;
 
     private UserDto testUser;
+
 }

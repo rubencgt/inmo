@@ -1,4 +1,4 @@
-package com.sistema.inmobiliaria.inmo.steps;
+package com.sistema.inmobiliaria.inmo.cucumbersteps;
 
 import com.sistema.inmobiliaria.inmo.InmoApplication;
 import com.sistema.inmobiliaria.inmo.config.CucumberContext;

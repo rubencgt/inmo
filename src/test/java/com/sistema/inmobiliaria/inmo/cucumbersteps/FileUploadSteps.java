@@ -1,8 +1,10 @@
-package com.sistema.inmobiliaria.inmo.steps;
+package com.sistema.inmobiliaria.inmo.cucumbersteps;
 
-import com.sistema.inmobiliaria.inmo.core.storage.FileStorageService;
+import com.sistema.inmobiliaria.inmo.core.file.FileStorageService;
+import com.sistema.inmobiliaria.inmo.core.storage.StorageFileNotFoundException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.mock.web.MockMultipartFile;
@@ -17,8 +19,8 @@ public class FileUploadSteps extends StepsRestBaseIT {
 
     @Given("the service uploads a file")
     public void theServiceUploadsFile() {
-        String filename = "temp-storage.txt";
-        MultipartFile multipartFile = new MockMultipartFile("temp-storage", filename, "text/plain", "some data".getBytes());
+        String filename = "temp-file.txt";
+        MultipartFile multipartFile = new MockMultipartFile("temp-file", filename, "text/plain", "some data".getBytes());
         service.store(multipartFile);
         cucumberContext.setFileName(filename);
     }
@@ -31,6 +33,7 @@ public class FileUploadSteps extends StepsRestBaseIT {
     }
 
     @Then("the file can be deleted")
+    @Test(expected = StorageFileNotFoundException.class)
     public void theServiceShouldDeleteFile() {
         boolean deleted = service.deleteFile(cucumberContext.getFileName());
         service.deleteAll();

@@ -1,4 +1,4 @@
-package com.sistema.inmobiliaria.inmo.steps;
+package com.sistema.inmobiliaria.inmo.cucumbersteps;
 
 import com.sistema.inmobiliaria.inmo.domain.property.House;
 import com.sistema.inmobiliaria.inmo.domain.property.Property;
