@@ -22,7 +22,7 @@ public class Property extends VersionedEntity<Long> {
 
     private String location;
 
-    private String type;
+    private PropertyType type;
 
     private String description;
 

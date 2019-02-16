@@ -43,14 +43,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(encoder());
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .anonymous().disable()
                 .authorizeRequests()
-                .antMatchers("/registration").permitAll()
-                .antMatchers("/user/**").access("hasRole('USER')");
+                .antMatchers("/registration*").permitAll()
+                .antMatchers("/advertisement*").hasAuthority("USER")
+                .anyRequest().authenticated();
     }
 
     @Bean

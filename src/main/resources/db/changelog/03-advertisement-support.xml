@@ -30,10 +30,22 @@
             <column name="PROPERTY_ID" type="NUMBER(19)">
                 <constraints nullable="false"/>
             </column>
+            <column name="USER_ID" type="NUMBER(19)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
+
         <createSequence sequenceName="ADVERTISEMENT_SEQ_ID" startValue="1" incrementBy="100"/>
+
         <addForeignKeyConstraint baseColumnNames="PROPERTY_ID" baseTableName="ADVERTISEMENT"
                                  referencedColumnNames="ID" referencedTableName="PROPERTY"
                                  constraintName="FK_AD_PROPERTY"/>
+
+
+        <!--<addForeignKeyConstraint baseColumnNames="USER_ID" baseTableName="ADVERTISEMENT"-->
+                                 <!--referencedColumnNames="ID" referencedTableName="USER"-->
+                                 <!--constraintName="FK_USER_ADV"/>-->
+
+
     </changeSet>
 </databaseChangeLog>
