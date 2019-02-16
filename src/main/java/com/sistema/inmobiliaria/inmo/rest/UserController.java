@@ -15,9 +15,9 @@ import javax.validation.Valid;
  * @author Ruben Guarachi
  */
 @RestController
-public class RegistrationController {
+public class UserController {
 
-    public static final String BASE_URL = "/registration";
+    public static final String BASE_URL = "/users";
 
     @Autowired
     private RegistrationService registrationService;

@@ -27,7 +27,7 @@
             <column name="LOCATION" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="TYPE" type="varchar(255)">
+            <column name="TYPE" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="DESCRIPTION" type="VARCHAR2(255)">
@@ -44,4 +44,45 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="03" author="ruben">
+        <createTable tableName="APARTMENT" remarks="House table">
+            <column name="PROPERTY_ID" type="NUMBER(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="04" author="ruben">
+        <createTable tableName="ROOM" remarks="House table">
+            <column name="PROPERTY_ID" type="NUMBER(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="05" author="ruben">
+        <createTable tableName="PARCEL" remarks="House table">
+            <column name="PROPERTY_ID" type="NUMBER(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="06" author="ruben">
+        <createTable tableName="STORE" remarks="House table">
+            <column name="PROPERTY_ID" type="NUMBER(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="07" author="ruben">
+        <createTable tableName="OFFICE" remarks="House table">
+            <column name="PROPERTY_ID" type="NUMBER(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>

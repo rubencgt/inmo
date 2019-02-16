@@ -1,8 +1,9 @@
 package com.sistema.inmobiliaria.inmo.steps;
 
-import com.sistema.inmobiliaria.inmo.domain.property.House;
+import com.sistema.inmobiliaria.inmo.domain.property.residential.House;
 import com.sistema.inmobiliaria.inmo.domain.property.Property;
 import com.sistema.inmobiliaria.inmo.domain.property.PropertyRepository;
+import com.sistema.inmobiliaria.inmo.domain.property.PropertyType;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class PropertySteps extends StepsRestBaseIT {
 
     @When("the user inserts a new house")
     public void userInsertsNewProperty() {
-        Property property = new House("some location", "house", "a house description");
+        Property property = new House("some location", PropertyType.HOUSE, "a house description");
         propertyRepository.save(property);
         cucumberContext.setPropertyId(property.getId());
     }

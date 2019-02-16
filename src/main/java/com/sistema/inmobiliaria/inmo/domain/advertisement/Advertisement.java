@@ -21,7 +21,6 @@ import javax.persistence.SequenceGenerator;
 @SequenceGenerator(name = "ID_GENERATOR", sequenceName = "ADVERTISEMENT_SEQ_ID", allocationSize = 100)
 public class Advertisement extends VersionedEntity<Long> {
 
-
     private Property property;
 
     private AdvertisementType advertisementType;
