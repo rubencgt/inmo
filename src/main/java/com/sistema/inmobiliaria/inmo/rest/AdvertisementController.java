@@ -1,7 +1,6 @@
 package com.sistema.inmobiliaria.inmo.rest;
 
 import com.sistema.inmobiliaria.inmo.core.advertisement.AdvertisementService;
-import com.sistema.inmobiliaria.inmo.domain.advertisement.Advertisement;
 import com.sistema.inmobiliaria.inmo.domain.advertisement.AdvertisementDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,7 +20,6 @@ import java.util.List;
 @RestController
 public class AdvertisementController {
 
-
     public static final String BASE_URL = "/advertisements";
 
     @Autowired
@@ -34,7 +32,7 @@ public class AdvertisementController {
     }
 
     @GetMapping(BASE_URL)
-    public List<Advertisement> getAll(@RequestParam long userId) {
+    public List<AdvertisementDto> getAll(@RequestParam long userId) {
         return advertisementService.getAdvertisements(userId);
     }
 

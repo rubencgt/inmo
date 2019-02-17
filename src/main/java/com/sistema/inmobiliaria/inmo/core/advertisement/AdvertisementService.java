@@ -14,5 +14,5 @@ public interface AdvertisementService {
 
     void createAdvertisement(AdvertisementDto advertisementDto, Long userId);
 
-    List<Advertisement> getAdvertisements(Long userId);
+    List<AdvertisementDto> getAdvertisements(Long userId);
 }

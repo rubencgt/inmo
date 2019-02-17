@@ -47,14 +47,4 @@ public class StepsRestBaseIT {
         return details;
     }
 
-    protected UserDto createUserDto() {
-        UserDto userDto = new UserDto();
-        userDto.setFirstName("Some name");
-        userDto.setLastName("Some last name");
-        userDto.setEmail("some@email.com");
-        userDto.setPassword("password");
-        userDto.setMatchingPassword("password");
-        return userDto;
-    }
-
 }
