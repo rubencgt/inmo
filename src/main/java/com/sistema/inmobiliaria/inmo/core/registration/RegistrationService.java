@@ -1,7 +1,7 @@
 package com.sistema.inmobiliaria.inmo.core.registration;
 
 import com.sistema.inmobiliaria.inmo.domain.user.UserDto;
-import com.sistema.inmobiliaria.inmo.domain.user.UserReponseDto;
+import com.sistema.inmobiliaria.inmo.domain.user.UserResponseDto;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,6 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface RegistrationService {
 
-    UserReponseDto registerUserAccount(UserDto userDto);
+    void registerUserAccount(UserDto userDto);
 
 }

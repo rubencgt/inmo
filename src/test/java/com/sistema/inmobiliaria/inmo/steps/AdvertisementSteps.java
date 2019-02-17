@@ -2,13 +2,14 @@ package com.sistema.inmobiliaria.inmo.steps;
 
 import com.sistema.inmobiliaria.inmo.domain.advertisement.AdvertisementDto;
 import com.sistema.inmobiliaria.inmo.domain.advertisement.AdvertisementType;
-import com.sistema.inmobiliaria.inmo.domain.property.PropertyDto;
 import com.sistema.inmobiliaria.inmo.domain.property.PropertyType;
 import com.sistema.inmobiliaria.inmo.rest.AdvertisementController;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import static com.sistema.inmobiliaria.inmo.utils.DefaultEntities.createAdvertisementDto;
 
 public class AdvertisementSteps extends StepsRestBaseIT {
 
@@ -17,7 +18,7 @@ public class AdvertisementSteps extends StepsRestBaseIT {
         AdvertisementDto advertisement = createAdvertisementDto(AdvertisementType.ALQUILER, PropertyType.STORE);
         String url = createUrl(1L);
 
-        ResponseEntity<String> responseEntity = auth2RestTemplate.postForEntity(url, advertisement, String.class);
+        ResponseEntity<?> responseEntity = auth2RestTemplate.postForEntity(url, advertisement, String.class);
         assert responseEntity.getStatusCode().is2xxSuccessful();
     }
 
@@ -35,15 +36,5 @@ public class AdvertisementSteps extends StepsRestBaseIT {
                 .build().toString();
     }
 
-    private AdvertisementDto createAdvertisementDto(AdvertisementType advertisementType, PropertyType propertyType) {
-        PropertyDto propertyDto = new PropertyDto();
-        propertyDto.setDescription("description");
-        propertyDto.setLocation("some location");
-        propertyDto.setType(propertyType);
 
-        AdvertisementDto advertisement = new AdvertisementDto();
-        advertisement.setAdvertisementType(advertisementType);
-        advertisement.setPropertyDto(propertyDto);
-        return advertisement;
-    }
 }

@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.Objects;
 
+import static com.sistema.inmobiliaria.inmo.utils.DefaultEntities.createUserDto;
+
 public class UserSteps extends StepsRestBaseIT {
 
     @Autowired
@@ -20,7 +22,8 @@ public class UserSteps extends StepsRestBaseIT {
     public void personIsCreated() {
         if (Objects.isNull(cucumberContext.getTestUser())) {
             UserDto userDto = createUserDto();
-            restTemplate.postForEntity(inmoUrlBase + UserController.BASE_URL, userDto, UserDto.class);
+            ResponseEntity<?> responseEntity = restTemplate.postForEntity(inmoUrlBase + UserController.BASE_URL, userDto, UserDto.class);
+            assert responseEntity.getStatusCode().is2xxSuccessful();
             cucumberContext.setTestUser(userDto);
         }
     }

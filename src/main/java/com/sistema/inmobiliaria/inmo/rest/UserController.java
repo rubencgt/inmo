@@ -3,6 +3,7 @@ package com.sistema.inmobiliaria.inmo.rest;
 import com.sistema.inmobiliaria.inmo.core.registration.RegistrationService;
 import com.sistema.inmobiliaria.inmo.domain.user.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * @author Ruben Guarachi
@@ -23,11 +26,11 @@ public class UserController {
     private RegistrationService registrationService;
 
     @PostMapping(BASE_URL)
-    public void registerUserAccount(@RequestBody @Valid UserDto userDto, BindingResult result) {
-
+    public ResponseEntity registerUserAccount(@RequestBody @Valid UserDto userDto, BindingResult result) throws URISyntaxException {
         if (!result.hasErrors()) {
             registrationService.registerUserAccount(userDto);
         }
+        return ResponseEntity.created(new URI(BASE_URL)).build();
     }
 
     @GetMapping("/user")

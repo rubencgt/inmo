@@ -17,5 +17,4 @@ public class AdvertisementDto {
     @NotNull
     private AdvertisementType advertisementType;
 
-
 }
